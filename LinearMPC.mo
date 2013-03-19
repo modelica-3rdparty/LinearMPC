@@ -1261,11 +1261,6 @@ For more information see also the publication listed under <a href=\"modelica://
         equation
           y = u1 + u2;
           annotation (
-            Window(
-              x=0.35,
-              y=0.02,
-              width=0.52,
-              height=0.68),
             Documentation(info="<html>
 <p>
 This blocks computes output <b>y</b> as <i>difference</i> of the
@@ -1335,8 +1330,7 @@ Example:
 
     equation
       y = u*deltaUmax + u0;
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (                           Icon(graphics={
             Text(
               extent={{-20,20},{100,-100}},
               lineColor={127,0,0},
@@ -1453,8 +1447,7 @@ Example:
               points={{-116,14},{-76,-6},{-116,-26},{-116,14}},
               lineColor={0,0,127},
               fillColor={0,0,127},
-              fillPattern=FillPattern.Solid)}),
-                                         Diagram(graphics));
+              fillPattern=FillPattern.Solid)}));
     end NormalizeOutputVec;
 
     model NormalizeInputVec
@@ -1473,8 +1466,7 @@ Example:
 
     equation
       y = diagonal(deltaUmax)*u + u0;
-      annotation (Diagram(graphics),
-                           Icon(graphics={
+      annotation (                           Icon(graphics={
             Text(
               extent={{-20,20},{100,-100}},
               lineColor={127,0,0},
@@ -2598,8 +2590,7 @@ Example:
       yPreBias = pre(yPreNextBias); // with bias compensation
     end when;
 
-    annotation (Diagram(graphics),
-                         Icon(graphics={Rectangle(
+    annotation (                         Icon(graphics={Rectangle(
             extent={{-2,-34},{80,-66}},
             lineColor={0,0,255},
             pattern=LinePattern.None,
@@ -2734,8 +2725,7 @@ Example:
             extent={{-8,-74},{74,-42}},
             lineColor={0,0,0},
             textString=
-                 "A, B, C, D")}),             Diagram(graphics),
-      DymolaStoredErrors);
+                 "A, B, C, D")}));
   end MPCstatespace;
 
   model RTG
@@ -2789,8 +2779,7 @@ Example:
         points={{62,-30},{88,-30},{88,0},{100,0}},
         color={0,0,127},
         thickness=1));
-    annotation (Diagram(graphics),
-                         Icon(graphics={
+    annotation (                         Icon(graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
@@ -2928,9 +2917,7 @@ Example:
               -12},{8,-12},{8,-30},{86,-30},{86,50},{71,50}}, color={0,0,127}));
       connect(step4.y, rTG.w[1]) annotation (Line(points={{-59,-10},{-40,-10}},
             color={0,0,127}));
-      annotation (Diagram(graphics),
-        experiment(StopTime=100),
-        experimentSetupOutput);
+      annotation (        experiment(StopTime=100));
     end testMPCstepresponse;
 
     model testMPCstatespace
@@ -3053,9 +3040,7 @@ Example:
               {12,24}}, color={0,0,127}));
       connect(step1.y, mPCstatespace1.d[1]) annotation (Line(points={{-1,60},{6,
               60},{6,-48},{20,-48}}, color={0,0,127}));
-      annotation (Diagram(graphics),
-        experiment(StopTime=100),
-        experimentSetupOutput);
+      annotation (        experiment(StopTime=100));
     end testMPCstatespace;
 
     model testMPCstatespace2
@@ -3250,8 +3235,7 @@ Example:
               lineColor={0,0,255},
               textString=
                    "u2")}),
-        experiment(StopTime=100),
-        experimentSetupOutput);
+        experiment(StopTime=100));
     end testMPCstatespace2;
 
     model testMPCstatespace2_2
@@ -3364,9 +3348,7 @@ Example:
               18}}, color={0,0,127}));
       connect(unitDelay4.y, mPCstatespace1.x) annotation (Line(points={{55,18},
               {62,18},{62,-30},{16,-30},{16,-68},{32,-68}}, color={0,0,127}));
-      annotation (Diagram(graphics),
-                           experiment(StopTime=100),
-        experimentSetupOutput);
+      annotation (                           experiment(StopTime=100));
     end testMPCstatespace2_2;
   end Test;
   annotation (uses(Modelica(version="3.2")), version="1");
