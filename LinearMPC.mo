@@ -1,4 +1,4 @@
-﻿within ;
+within ;
 package LinearMPC
   "Modelica predictive control library (by the Institute of Automatic Control, RWTH Aachen University)"
 // Please cite the following publication if you are using the library for your own research:
@@ -561,7 +561,7 @@ printing and shipping costs may be recovered.</p>
     <tr>
       <td valign=\"top\">[Hoelemann2009]</td>
       <td valign=\"top\">Sebastian H&ouml;lemann, Dirk Abel (2009),
-	&quot;Modelica Predictive Control – An MPC Library for Modelica&quot;,
+	&quot;Modelica Predictive Control -- An MPC Library for Modelica&quot;,
         <i>at - Automatisierungstechnik:</i>,Vol. 57, No. 4, pp. 187-194,
         <a href=\"http://dx.doi.org/10.1524/auto.2009.0766\">doi: 10.1524/auto.2009.0766</a>
     </tr>
@@ -2055,9 +2055,9 @@ Example:
       Integer[(Np-Nl+1)*size(rcdC.boundedDeltaYmin, 1)] vec_H4min;
       Integer[(Np-Nl+1)*size(rcdC.boundedDeltaYmax, 1)] vec_H4max;
       Real[(Np-Nl+1)*n, Nu*m] mat_H5 = zeros((Np-Nl+1)*n, Nu*m)
-        "Hilfsmatrix Theta";
-      Real[(Np-Nl+1)*p,m*Nu] mat_H2 "Hilfsmatrix Theta";
-      Real[n,m] q = zeros(n,m) "Hilfsmatrix für Reihe";
+        "Helping matrix Theta";
+      Real[(Np-Nl+1)*p,m*Nu] mat_H2 "Helping matrix Theta";
+      Real[n,m] q = zeros(n,m) "Helping matrix for row";
 
     algorithm
     // check for correct array dimensions and indices
@@ -2239,7 +2239,8 @@ Example:
                    for r in 1:(j-i+1) loop
                     q := q + A^(r-1)*B;
                    end for;
-                  mat_H5[((j-1)*n+1):(j*n),((i-1)*m+1):(i*m)] := q;      // hier muss er bei [1,:] anfangen, noch ändern, da Nl = 1 geht es hier auch so
+                  mat_H5[((j-1)*n+1):(j*n),((i-1)*m+1):(i*m)] := q; // here it has to start at [1,:],
+		                                  // XXX needs change since it works for Nl = 1 too
               else
                 mat_H5[((j-1)*n+1):(j*n),((i-1)*m+1):(i*m)] := zeros(n, m);
               end if;
@@ -2349,7 +2350,7 @@ Example:
       constant Real H2[p,p] = identity(p) "auxiliary matrix";
       constant Real H3[n,n] = identity(n) "auxiliary matrix";
       Real deltaX[n] "changes in x";
-      Real q[n,m] = zeros(n,m) "Hilfsmatrix für Reihe";
+      Real q[n,m] = zeros(n,m) "Helping matrix for row";
       Real Phi[(Np-Nl+1)*n,m+n] "Phi";
       Real mat_H1[(Np-Nl+1)*p,m+n] "Phi";
 
@@ -2690,10 +2691,11 @@ Example:
     when sample(0, Ts) then
       // measureable disturbances
       if q > 0 then
-        if DisturbanceInput == 0 then                                    // input is current measurement only
-          disturbance = Basic.repVec(d,q,Np-Nl+1);                             // d hat groeße q, in jedem Zustand gemessener Wert wird über den ganzen Horizont konstant angenommen
-        else                                                             // input is entire prospective trajectory
-          disturbance = d;                                                     // d hat groeße q*(Np-Nl+1)
+        if DisturbanceInput == 0 then              // input is current measurement only
+          disturbance = Basic.repVec(d,q,Np-Nl+1); // d is size of q, measured values of all states are assumed to be
+                                                   // constant for the whole horizon
+        else                   // input is entire prospective trajectory
+          disturbance = d;     // d is size of q*(Np-Nl+1)
         end if;
       else
         disturbance = zeros(q*(Np-Nl+1));
