@@ -28,7 +28,7 @@ table   { solid #000; border-collapse: collapse;}
 </head>
 
 <p>All files in this directory (LinearMPC) and in all
-subdirectories, are licensed by the <b><u>Sebastian H&ouml;lemann</u></b> under the <b><u>Modelica License 2</u></b> with the <b><u>extra condition</u></b> that the user also cites the publication listed in <a href=\"modelica://LinearMPC.UsersGuide.References\">References</a></p>.
+subdirectories, are licensed by the <b><u>Sebastian H&ouml;lemann</u></b> under the <b><u>Modelica License 2</u></b> with the <b><u>extra condition</u></b> that the user also cites the publication listed in <a href=\"modelica://LinearMPC.UsersGuide.References\">References</a>.</p>
 
 <p style=\"margin-left: 40px;\"><b>Licensor:</b><br>
 Sebastian H&ouml;lemann</p>
