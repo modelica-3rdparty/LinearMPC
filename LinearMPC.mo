@@ -715,7 +715,7 @@ For more information see also the publication listed under <a href=\"modelica://
       parameter Real Rexp[m*Nu,m*Nu] = Basic.repmatDiag(R,size(R,1),size(R,2),Nu);
 
     protected
-      Modelica.Blocks.Discrete.UnitDelay unitDelay[m](samplePeriod=Ts, y_start=
+      Modelica.Blocks.Discrete.UnitDelay unitDelay[m](each samplePeriod=Ts, y_start=
             u_start)
         annotation (Placement(transformation(extent={{60,-40},{40,-20}},
               rotation=0)));
@@ -3311,10 +3311,10 @@ Example:
         C={{0,0.333333,0,-1,0,0},{0,0,1,0,0,0.32}})
                          annotation (Placement(transformation(extent={{-20,70},
                 {0,90}}, rotation=0)));
-      Modelica.Blocks.Discrete.UnitDelay unitDelay2[2](samplePeriod=Ts)
+      Modelica.Blocks.Discrete.UnitDelay unitDelay2[2](each samplePeriod=Ts)
         annotation (Placement(transformation(extent={{66,68},{86,88}}, rotation=
                0)));
-      Modelica.Blocks.Discrete.UnitDelay unitDelay3[2](samplePeriod=Ts)
+      Modelica.Blocks.Discrete.UnitDelay unitDelay3[2](each samplePeriod=Ts)
         annotation (Placement(transformation(extent={{32,68},{52,88}}, rotation=
                0)));
       Modelica.Blocks.Discrete.StateSpace stateSpace(
@@ -3324,7 +3324,7 @@ Example:
         B=Bd,
         C=identity(6)) annotation (Placement(transformation(extent={{-20,8},{0,
                 28}}, rotation=0)));
-      Modelica.Blocks.Discrete.UnitDelay unitDelay4[6](samplePeriod=Ts)
+      Modelica.Blocks.Discrete.UnitDelay unitDelay4[6](each samplePeriod=Ts)
         annotation (Placement(transformation(extent={{34,8},{54,28}}, rotation=
                 0)));
     equation
