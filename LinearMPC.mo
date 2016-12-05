@@ -2609,8 +2609,8 @@ Example:
   //   Modelica Predictive Control -- An MPC Library for Modelica,
   //   at - Automatisierungstechnik, 2009, Vol. 57, pp. 187-194.
 
-    extends Basic.linMPCpartial(redeclare replaceable parameter Type ModelType=
-                    Basic.state_space_model);
+    extends Basic.linMPCpartial(redeclare replaceable parameter ModelType
+        modelType = Basic.state_space_model);
 
     Modelica.Blocks.Interfaces.RealInput x[n]
       annotation (Placement(transformation(extent={{-120,-20},{-80,20}},
