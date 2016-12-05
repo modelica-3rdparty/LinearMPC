@@ -2602,7 +2602,7 @@ Example:
             thickness=1)}));
   end MPCstepresponse;
 
-  block MPCstatespace
+  model MPCstatespace
     "Modelica predictive control library (by the Institute of Automatic Control, RWTH Aachen University)"
   // Please cite the following publication if you are using the library for your own research:
   //   S. Hoelemann and D. Abel,
