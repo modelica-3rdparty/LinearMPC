@@ -2771,17 +2771,13 @@ Example:
       if how ==0 then //constant output
         r = howPar*ones(p*(Np-Nl+1));
       elseif how == 1 then
-        r = Basic.repVec(     w,p,(Np-Nl+1));
+        r = Basic.repVec(w,p,(Np-Nl+1));
       elseif how == 2 then
         r = cat(1, unitDelay[(p+1):end].y, w[:]);
       end if;
-
     end when;
-    connect(unitDelay.u, r) annotation (Line(
-        points={{62,-30},{88,-30},{88,0},{100,0}},
-        color={0,0,127},
-        thickness=1));
-    annotation (                         Icon(graphics={
+    unitDelay.u = r;
+    annotation (Icon(graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
             lineColor={0,0,0},
