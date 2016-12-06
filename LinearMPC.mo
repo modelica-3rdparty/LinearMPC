@@ -1849,8 +1849,8 @@ Example:
       Real startValues[m*Nu] "start values of iteration";
 
       Integer h "auxiliary variable";
-      constant Real H1[m,m] = identity(m) "auxiliary matrix";
-      constant Real H2[p,p] = identity(p) "auxiliary matrix";
+      Real H1[m,m] = identity(m) "auxiliary matrix";
+      Real H2[p,p] = identity(p) "auxiliary matrix";
       Real H3[(Np-Nl+1)*p,(Nm-1)*m] = zeros((Np-Nl+1)*p,(Nm-1)*m)
         "matrix F_quer";
 
@@ -2346,9 +2346,9 @@ Example:
       Real startValues[m*Nu] "start values of iteration";
 
       Integer h "auxiliary variable";
-      constant Real H1[m,m] = identity(m) "auxiliary matrix";
-      constant Real H2[p,p] = identity(p) "auxiliary matrix";
-      constant Real H3[n,n] = identity(n) "auxiliary matrix";
+      Real H1[m,m] = identity(m) "auxiliary matrix";
+      Real H2[p,p] = identity(p) "auxiliary matrix";
+      Real H3[n,n] = identity(n) "auxiliary matrix";
       Real deltaX[n] "changes in x";
       Real q[n,m] = zeros(n,m) "Helping matrix for row";
       Real Phi[(Np-Nl+1)*n,m+n] "Phi";
