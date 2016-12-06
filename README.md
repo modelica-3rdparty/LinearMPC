@@ -8,7 +8,7 @@ Modelica library for model-based predictive controllers with linear process mode
 
 As well, the controller is capable of constraints and disturbance handling. A controller block can be included easily into any Modelica model and is parameterized intuitively.
 
-The library avoids the coupling of Modelica to other software products.Thus, a contribution is made towards an integrated control system design in Modelica.
+The library avoids the coupling of Modelica to other software products. Thus, a contribution is made towards an integrated control system design in Modelica.
 
 Read More:
 > S. Hoelemann and D. Abel,
