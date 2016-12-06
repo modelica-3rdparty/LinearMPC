@@ -3087,9 +3087,9 @@ Example:
         Np=18)              annotation (Placement(transformation(extent={{-34,
                 -92},{-14,-72}}, rotation=0)));
       Modelica.Blocks.Sources.Step step8[2](
-        offset=0,
-        startTime=1,
-        height=0.5)
+        each offset=0,
+        each startTime=1,
+        each height=0.5)
                   annotation (Placement(transformation(extent={{-78,-92},{-58,
                 -72}}, rotation=0)));
       MPCstatespace mPCstatespace1(
@@ -3267,9 +3267,9 @@ Example:
         Np=18)              annotation (Placement(transformation(extent={{-32,
                 -78},{-12,-58}}, rotation=0)));
       Modelica.Blocks.Sources.Step step8[2](
-        offset=0,
-        height=1,
-        startTime=0)
+        each offset=0,
+        each height=1,
+        each startTime=0)
                   annotation (Placement(transformation(extent={{-78,-78},{-58,
                 -58}}, rotation=0)));
       MPCstatespace mPCstatespace1(
