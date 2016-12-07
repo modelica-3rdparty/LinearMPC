@@ -2754,29 +2754,27 @@ Example:
     parameter Real Ts = 1 "sample time";
 
     Modelica.Blocks.Interfaces.RealInput w[p]
-      annotation (Placement(transformation(extent={{-120,-20},{-80,20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-120,-20},{-80,20}})));
     Modelica.Blocks.Interfaces.RealOutput r[p*(Np-Nl+1)]
-                                            annotation (Placement(
-          transformation(extent={{80,-20},{120,20}}, rotation=0)));
+      annotation (Placement(transformation(extent={{80,-20},{120,20}})));
 
   protected
-    Modelica.Blocks.Discrete.UnitDelay unitDelay[(p*(Np - Nl + 1))](y_start=zeros(
-           p*(Np - Nl + 1)))
-      annotation (Placement(transformation(extent={{60,-40},{40,-20}}, rotation=
-             0)));
+    discrete Real pre_r[(p*(Np - Nl + 1))];
 
+  initial equation
+    pre_r = zeros(p*(Np - Nl + 1));
+  
   equation
     when sample(0, Ts) then
+      pre_r = pre(r);
       if how ==0 then //constant output
         r = howPar*ones(p*(Np-Nl+1));
       elseif how == 1 then
         r = Basic.repVec(w,p,(Np-Nl+1));
       elseif how == 2 then
-        r = cat(1, unitDelay[(p+1):end].y, w[:]);
+        r = cat(1, pre_r[(p+1):end], w[:]);
       end if;
     end when;
-    unitDelay.u = r;
     annotation (Icon(graphics={
           Rectangle(
             extent={{-100,100},{100,-100}},
